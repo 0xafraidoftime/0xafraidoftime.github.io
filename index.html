@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>afraidoftime</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --text: #e8e8e8;
+      --muted: #555;
+      --accent: #00ffff;
+      --accent-dim: rgba(0,255,255,0.07);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* subtle scanline texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.15) 2px,
+        rgba(0,0,0,0.15) 4px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(480px, 92vw);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Avatar */
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 0 20px rgba(0,255,255,0.25);
+      margin-bottom: 1.4rem;
+      overflow: hidden;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 16px rgba(0,255,255,0.2); }
+      50%       { box-shadow: 0 0 32px rgba(0,255,255,0.45); }
+    }
+
+    /* Name */
+    .name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+
+    .handle {
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .bio {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.8;
+      max-width: 340px;
+      margin-bottom: 2rem;
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 1.6rem;
+    }
+
+    /* Links */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .link:hover {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      transform: translateX(3px);
+    }
+
+    .link-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    .link-label { flex: 1; }
+
+    .link-arrow {
+      font-size: 0.65rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .link:hover .link-arrow { color: var(--accent); }
+
+    .video-wrap {
+      width: 100%;
+      margin-top: 1.6rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      display: block;
+      max-height: 280px;
+      object-fit: cover;
+      background: #000;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.62rem;
+      color: #2a2a2a;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    /* Blink cursor */
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--accent);
+      vertical-align: middle;
+      margin-left: 3px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <div class="avatar">☕</div>
+
+    <h1 class="name">afraidoftime<span class="cursor"></span></h1>
+    <p class="handle">@afraidoftime</p>
+
+    <p class="bio">
+      chess player · chai addict · mind hacker<br/>
+      learning, breaking things, and building them back.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="links">
+
+      <!-- Twitter/X -->
+      <a class="link" href="https://x.com/afraidoftime_" target="_blank" rel="noopener">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.018 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span class="link-label">Twitter / X</span>
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <!-- GitHub -->
+      <a class="link" href="https://github.com/0xafraidoftime" target="_blank" rel="noopener">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.338 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/>
+        </svg>
+        <span class="link-label">GitHub</span>
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <!-- Email -->
+      <a class="link" href="mailto:ap.cons03@gmail.com">
+        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m2 7 10 7 10-7"/>
+        </svg>
+        <span class="link-label">Email</span>
+        <span class="link-arrow">↗</span>
+      </a>
+
+    </div>
+
+    <div class="video-wrap">
+      <video controls loop muted playsinline>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <p class="footer">built with #00FFFF technology &nbsp;·&nbsp; more to come</p>
+
+  </div>
+</body>
+</html>
