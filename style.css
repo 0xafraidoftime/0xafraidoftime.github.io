@@ -3,14 +3,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0a0f0a;
-  --surface: #0d130d;
-  --border: #1a2e1a;
-  --text: #e8f0e8;
-  --muted: #7a9e7a;
-  --accent: #39ff14;
-  --accent2: #00cc44;
-  --green: #39ff14;
+  --bg: #000000;
+  --surface: #050a0f;
+  --border: #0a2a3a;
+  --text: #e8f4ff;
+  --muted: #6a9ab0;
+  --accent: #00d4ff;
+  --accent2: #0099cc;
+  --green: #00ffff;
 }
 
 html, body {
@@ -49,6 +49,7 @@ header {
   color: var(--accent);
   letter-spacing: -0.02em;
   line-height: 1;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.8), 0 0 20px rgba(0, 212, 255, 0.4);
 }
 
 .site-role {
@@ -243,6 +244,60 @@ nav a:hover, nav a.active { color: var(--text); text-decoration: underline; }
   border-left: 3px solid var(--accent);
   padding-left: 0.8rem;
   margin-bottom: 1rem;
+}
+
+/* ── MUSIC PLAYER ── */
+.music-bar {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(0, 10, 20, 0.85);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.72rem;
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.3);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.music-bar:hover { box-shadow: 0 0 20px rgba(0, 212, 255, 0.55); }
+.music-bar .music-label { letter-spacing: 0.08em; user-select: none; }
+.music-bar .music-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.music-bar .music-viz {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+.music-bar .music-viz span {
+  display: block;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 1px;
+  animation: viz 0.8s ease-in-out infinite alternate;
+}
+.music-bar .music-viz span:nth-child(2) { animation-delay: 0.15s; }
+.music-bar .music-viz span:nth-child(3) { animation-delay: 0.3s; }
+.music-bar .music-viz span:nth-child(4) { animation-delay: 0.1s; }
+.music-bar.paused .music-viz span { animation-play-state: paused; height: 4px !important; }
+
+@keyframes viz {
+  from { height: 3px; }
+  to   { height: 14px; }
 }
 
 /* ── ANIMATIONS ── */ */

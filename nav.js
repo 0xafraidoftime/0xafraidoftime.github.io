@@ -21,7 +21,7 @@ function renderNav(activePage) {
     <div class="name-role-row">
       <div>
         <div class="site-name">ankita</div>
-        <div class="site-role">ML Engineer</div>
+        <div class="site-role">ML Engineer • Former Chess Athlete</div>
       </div>
       <div class="social-icons">
         <a href="https://github.com/0xafraidoftime" target="_blank" rel="noopener" data-tip="github">

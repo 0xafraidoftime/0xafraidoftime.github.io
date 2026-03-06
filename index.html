@@ -114,6 +114,30 @@
 
 </div>
 
+<div class="music-bar paused" id="music-bar" onclick="toggleMusic()">
+  <div class="music-viz">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <span class="music-label">tron legacy · daft punk</span>
+  <button class="music-btn" id="music-btn">▶</button>
+</div>
+
+<audio id="bg-audio" src="tron.mp3" loop></audio>
+
 <script src="nav.js"></script>
-</body>
-</html>
+<script>
+function toggleMusic() {
+  const audio = document.getElementById('bg-audio');
+  const bar = document.getElementById('music-bar');
+  const btn = document.getElementById('music-btn');
+  if (audio.paused) {
+    audio.play();
+    bar.classList.remove('paused');
+    btn.textContent = '⏸';
+  } else {
+    audio.pause();
+    bar.classList.add('paused');
+    btn.textContent = '▶';
+  }
+}
+</script>
