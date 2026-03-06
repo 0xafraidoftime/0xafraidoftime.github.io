@@ -253,7 +253,8 @@ nav a.active { color: var(--text); }
 
 /* ── COUNTER ── */
 .counter-wrap {
-  margin-top: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
