@@ -321,6 +321,21 @@ nav a.active { color: var(--text); }
   to   { height: 14px; }
 }
 
+/* ── FOOTER ── */
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.site-footer .version { color: var(--accent2); }
+
 /* ── ANIMATIONS ── */ */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
