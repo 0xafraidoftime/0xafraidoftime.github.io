@@ -9,7 +9,9 @@
   --text: #e8f4ff;
   --muted: #6a9ab0;
   --accent: #00d4ff;
-  --accent2: #0099cc;
+  --accent2: #b06aff;
+  --accent3: #00ff99;
+  --accent4: #ff6ac1;
   --green: #00ffff;
 }
 
@@ -58,6 +60,7 @@ header {
   font-size: 1.1rem;
   color: var(--accent2);
   margin-bottom: 0.9rem;
+  text-shadow: 0 0 8px rgba(176, 106, 255, 0.5);
 }
 
 /* social icons row */
@@ -105,14 +108,15 @@ nav {
 }
 
 nav a {
-  color: var(--accent);
-  text-decoration: none;
+  color: var(--accent3);
+  text-decoration: underline;
   font-size: 0.88rem;
   letter-spacing: 0.02em;
   transition: color 0.15s;
 }
 
-nav a:hover, nav a.active { color: var(--text); text-decoration: underline; }
+nav a:hover { color: var(--text); }
+nav a.active { color: var(--text); }
 
 /* ── SECTIONS ── */
 .section-title {
@@ -121,6 +125,7 @@ nav a:hover, nav a.active { color: var(--text); text-decoration: underline; }
   color: var(--accent2);
   font-size: 1rem;
   margin-bottom: 0.6rem;
+  text-shadow: 0 0 6px rgba(176, 106, 255, 0.4);
 }
 
 /* ── MISCELLANEA LINKS ── */
@@ -231,7 +236,7 @@ nav a:hover, nav a.active { color: var(--text); text-decoration: underline; }
 /* ── ABOUT PAGE ── */
 .about-body { font-size: 0.92rem; line-height: 1.9; }
 .about-body p { margin-bottom: 1.1rem; }
-.about-body a { color: var(--accent); }
+.about-body a { color: var(--accent3); }
 .about-body strong { color: var(--text); }
 .about-updated { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem; }
 
@@ -244,6 +249,21 @@ nav a:hover, nav a.active { color: var(--text); text-decoration: underline; }
   border-left: 3px solid var(--accent);
   padding-left: 0.8rem;
   margin-bottom: 1rem;
+}
+
+/* ── COUNTER ── */
+.counter-wrap {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.counter-wrap img {
+  height: 20px;
+  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.4));
 }
 
 /* ── MUSIC PLAYER ── */
